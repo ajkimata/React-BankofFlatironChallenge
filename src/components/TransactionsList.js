@@ -1,37 +1,48 @@
 import React from "react";
 import Transaction from "./Transaction";
 
-function TransactionsList({ transactions }) {
-  const list = transactions.map((item) => {
-    return (
-      <Transaction
-        key={item.id}
-        date={item.date}
-        description={item.description}
-        category={item.category}
-        amount={item.amount}
-      />
-    );
-  });
+function TransactionsList({ transactions, deleteTransaction, handleSort }) {
   return (
     <table className="ui celled striped padded table">
-      <tbody>
+      <thead>
         <tr>
           <th>
-            <h3 className="ui center aligned header">Date</h3>
+            <h3 className="ui center aligned header">
+              <button onClick={() => handleSort("date")}>Sort by Date</button>
+            </h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Description</h3>
+            <h3 className="ui center aligned header">
+              <button onClick={() => handleSort("description")}>Sort by Description</button>
+            </h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Category</h3>
+            <h3 className="ui center aligned header">
+              <button onClick={() => handleSort("category")}>Sort by Category</button>
+            </h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">Amount</h3>
+            <h3 className="ui center aligned header">
+              <button onClick={() => handleSort("amount")}>Sort by Amount</button>
+            </h3>
+          </th>
+          <th>
+            <h3 className="ui center aligned header">Actions</h3>
           </th>
         </tr>
-        {/* render a list of <Transaction> components here */}
-        {list}
+      </thead>
+      <tbody>
+        {transactions.map((transaction) => (
+          <Transaction
+            key={transaction.id}
+            date={transaction.date}
+            description={transaction.description}
+            category={transaction.category}
+            amount={transaction.amount}
+          >
+            <button onClick={() => deleteTransaction(transaction.id)}>Delete</button>
+          </Transaction>
+        ))}
       </tbody>
     </table>
   );

@@ -1,13 +1,6 @@
 {
   "transactions": [
     {
-      "id": 1,
-      "date": "2019-12-01",
-      "description": "Paycheck from Bob's Burgers",
-      "category": "Income",
-      "amount": 1000
-    },
-    {
       "id": 2,
       "date": "2019-12-01",
       "description": "South by Southwest Quinoa Bowl at Fresh & Co",
@@ -64,13 +57,6 @@
       "amount": 1000
     },
     {
-      "id": 10,
-      "date": "2019-12-16",
-      "description": "Tickets, Flatiron Multiplex Cinemas",
-      "category": "Entertainment",
-      "amount": -24
-    },
-    {
       "id": 11,
       "date": "2019-12-16",
       "description": "MTA Vending Machine: MetroCard",
@@ -78,18 +64,25 @@
       "amount": -116.39
     },
     {
-      "id": 12,
-      "date": "2019-12-17",
-      "description": "Venmo, Pay Roommate for Rent",
-      "category": "Housing",
-      "amount": -975
-    },
-    {
       "date": "2023-06-04",
       "description": "kimata",
       "category": "rent",
       "amount": "2000",
       "id": 13
+    },
+    {
+      "date": "2023-06-04",
+      "description": "jason",
+      "category": "food",
+      "amount": "1000",
+      "id": 14
+    },
+    {
+      "date": "2023-06-04",
+      "description": "today",
+      "category": "car",
+      "amount": "100000",
+      "id": 15
     }
   ]
 }

@@ -1,12 +1,13 @@
 import React from "react";
 
-function Transaction({date, description, category, amount}) {
+function Transaction({ date, description, category, amount, children }) {
   return (
     <tr>
-      <td>{date}</td>
-      <td>{description}</td>
-      <td>{category}</td>
-      <td>{amount}</td>
+      <td className="ui center aligned">{date}</td>
+      <td className="ui center aligned">{description}</td>
+      <td className="ui center aligned">{category}</td>
+      <td className="ui center aligned">{amount}</td>
+      <td className="ui center aligned">{children}</td>
     </tr>
   );
 }

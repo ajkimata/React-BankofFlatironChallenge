@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import Transaction from "./Transaction";
 
 function AddTransactionForm() {
   const [date, setDate] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
+
   function handleSubmit(e) {
+    e.preventDefault();
+
     fetch("http://localhost:8001/transactions", {
       method: "POST",
       headers: {
@@ -18,9 +20,24 @@ function AddTransactionForm() {
         category: category,
         amount: amount,
       }),
-    });
-    alert("added successfully");
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert("Transaction added successfully");
+          setDate("");
+          setDescription("");
+          setCategory("");
+          setAmount("");
+        } else {
+          throw new Error("Failed to add transaction");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("Failed to add transaction");
+      });
   }
+
   return (
     <div className="ui segment">
       <form onSubmit={handleSubmit} className="ui form">
